@@ -55,14 +55,15 @@ void FortressScene::Update()
 	for (Object* object : objects)
 		object->Update();
 
-	// 시간 갱신
+	// 시간 갱신 
 	_sumTime += deltaTime;
 	if (_sumTime >= 1.f)
 	{
 		_sumTime = 0.f;
 
+		// UI에서 관리하는 것보다 이중으로 관리하더라도 따로 관리하는 게 낫다!!!
 		int32 time = GET_SINGLE(UIManager)->GetRemainTime();
-		time = max(0, time - 1);
+		time = max(0, time - 1);	// 0보다 작으면 0을 유지하라.
 		GET_SINGLE(UIManager)->SetRemainTime(time);
 
 		if (time == 0)
@@ -94,7 +95,7 @@ void FortressScene::ChangePlayerTurn()
 		if (object->GetObjectType() != ObjectType::Player)
 			continue;
 
-		Player* player = static_cast<Player*>(object);
+		Player* player = static_cast<Player*>(object);	// 캐스팅
 		if (player->GetPlayerId() == _playerTurn)
 			player->SetPlayerTurn(true);
 		else

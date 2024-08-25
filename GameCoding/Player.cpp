@@ -124,7 +124,7 @@ void Player::Render(HDC hdc)
 			mesh->Render(hdc, _pos, -0.5f, 0.5f);
 	}
 	
-	// UI
+	// UI - 나중에는 이렇게 하드코딩X, 툴 이용해서 할 것!
 	if (_playerTurn)
 	{
 		RECT rect;
