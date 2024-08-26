@@ -15,7 +15,10 @@
 #include <algorithm>
 using namespace std;
 
+// C++ 20 (파일 입출력에 용이한 함수 헤더들)
 #include <format>
+#include <filesystem>
+namespace fs = std::filesystem;
 
 #define _CRTDEBG_MAP_ALLOC
 #include <cstdlib>

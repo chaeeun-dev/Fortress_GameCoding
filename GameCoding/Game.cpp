@@ -30,11 +30,11 @@ void Game::Init(HWND hwnd)
 	_bmpBack = ::CreateCompatibleBitmap(hdc, _rect.right, _rect.bottom); // hdc와 호환되는 비트맵 생성
 	HBITMAP prev = (HBITMAP)::SelectObject(hdcBack, _bmpBack); // DC와 BMP를 연결
 	::DeleteObject(prev);
-
+	
 	GET_SINGLE(TimeManager)->Init();
 	GET_SINGLE(InputManager)->Init(hwnd);
 	GET_SINGLE(SceneManager)->Init();
-	GET_SINGLE(ResourceManager)->Init();
+	GET_SINGLE(ResourceManager)->Init(hwnd, fs::path(L"C:\\Fortress_GameCoding\\Resources"));		// 지금은 하드 코딩...
 
 	GET_SINGLE(SceneManager)->ChangeScene(SceneType::DevScene);
 }
