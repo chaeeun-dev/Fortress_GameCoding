@@ -68,6 +68,7 @@ void Player::Update()
 		_dir = MoveDir::Right;
 	}
 
+	// clamp 함수 - min max
 	if (GET_SINGLE(InputManager)->GetButton(KeyType::W))
 		_fireAngle = ::clamp(_fireAngle + 50 * deltaTime, 0.f, 75.f);
 
@@ -83,7 +84,7 @@ void Player::Update()
 
 	if (GET_SINGLE(InputManager)->GetButtonUp(KeyType::SpaceBar))
 	{
-		_playerTurn = false;
+		_playerTurn = false;	// 스페이스 바 떼면 바로 다음 턴
 
 		// SpaceBar 비례해서 속도를 산정.
 		float percent = GET_SINGLE(UIManager)->GetPowerPercent();		

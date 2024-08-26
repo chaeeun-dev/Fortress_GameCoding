@@ -47,6 +47,7 @@ void Bullet::Update()
 		Vector dir = _pos - object->GetPos();
 		if (dir.Length() < _radius + object->GetRadius())
 		{
+			// dynamic_cast - 캐스팅이 되면 내가 원하는 씬이라는 것 -> 이제 사용할 수 있음
 			auto* scene = dynamic_cast<FortressScene*>(GET_SINGLE(SceneManager)->GetCurrentScene());
 			if (scene)
 				scene->ChangePlayerTurn();
