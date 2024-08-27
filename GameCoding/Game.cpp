@@ -5,6 +5,8 @@
 #include "SceneManager.h"
 #include "ResourceManager.h"
 
+// 수영이 컴퓨터에서 복제했는데 되겠지...
+
 Game::Game()
 {
 
