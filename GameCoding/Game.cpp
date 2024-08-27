@@ -34,7 +34,9 @@ void Game::Init(HWND hwnd)
 	GET_SINGLE(TimeManager)->Init();
 	GET_SINGLE(InputManager)->Init(hwnd);
 	GET_SINGLE(SceneManager)->Init();
-	GET_SINGLE(ResourceManager)->Init(hwnd, fs::path(L"C:\\Fortress_GameCoding\\Resources"));		// 지금은 하드 코딩...
+
+	//GET_SINGLE(ResourceManager)->Init(hwnd, fs::path(L"C:\\Fortress_GameCoding\\Resources"));		// 지금은 하드 코딩...
+	GET_SINGLE(ResourceManager)->Init(hwnd, fs::path(L"C:\\chaeeun\\Resources"));		// 컴퓨터 바뀌었으니 경로도 수정해야 하는데!!!! 안 해서 오류남!!!!
 
 	GET_SINGLE(SceneManager)->ChangeScene(SceneType::DevScene);
 }

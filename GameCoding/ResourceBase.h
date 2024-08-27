@@ -6,6 +6,5 @@ public:
 	ResourceBase();
 	virtual ~ResourceBase();
 
-
 };
 

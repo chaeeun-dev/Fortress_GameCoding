@@ -30,7 +30,6 @@ Texture* Texture::LoadBmp(HWND hwnd, const wstring& path)
 	_size.y = bit.bmHeight;
 
 	return this;
-
 }
 
 HDC Texture::GetDC()
