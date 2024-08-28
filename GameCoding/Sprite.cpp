@@ -2,6 +2,10 @@
 #include "Sprite.h"
 #include "Texture.h"
 
+Sprite::~Sprite()
+{
+}
+
 HDC Sprite::GetDC()
 {
 	return _texture->GetDC();

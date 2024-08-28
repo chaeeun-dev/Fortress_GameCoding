@@ -21,7 +21,7 @@ public:
 	Texture* LoadTexture(const wstring& key, const wstring& path, uint32 transparent = RGB(255, 0, 255));
 
 	Sprite* GetSprite(const wstring& key) { return _sprites[key]; }
-	Sprite* LoadSprite(const wstring& key, Texture* texture, int32 x = 0, int32 y = 0, int32 cx = 0, int32 cy = 0);
+	Sprite* CreateSprite(const wstring& key, Texture* texture, int32 x = 0, int32 y = 0, int32 cx = 0, int32 cy = 0);
 
 private:
 	HWND _hwnd;

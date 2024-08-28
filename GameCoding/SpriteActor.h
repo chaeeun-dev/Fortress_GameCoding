@@ -5,7 +5,7 @@ class Sprite;
 
 class SpriteActor : public Actor
 {
-	using Super = Actor;
+	using Super = Actor;	// ºÎ¸ð Super
 public:
 	SpriteActor();
 	virtual ~SpriteActor() override;
