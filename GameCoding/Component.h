@@ -8,5 +8,6 @@ public:
 	virtual void Render(HDC hdc) {}
 
 	// owner
+	// GameObjct* _owner;
 };
 
