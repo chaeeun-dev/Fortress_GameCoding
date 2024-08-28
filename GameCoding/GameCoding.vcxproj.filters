@@ -45,6 +45,15 @@
     <Filter Include="소스 파일\01. Manager\Game">
       <UniqueIdentifier>{a0e560d5-d55b-4329-aa4f-b7cbea9b550e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Objects\Unreal">
+      <UniqueIdentifier>{5350db1b-4bc7-43cf-ae0f-46913c399e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Objects\Unity">
+      <UniqueIdentifier>{775c8106-9bf8-4744-92c9-e062f226fa0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Resources\05.Component">
+      <UniqueIdentifier>{53bbc71f-12ac-45be-8a0f-9d192cf990dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCoding.h">
@@ -113,10 +122,21 @@
     <ClInclude Include="Sprite.h">
       <Filter>소스 파일\04. Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Actor.h">
+    <ClInclude Include="Player.h">
       <Filter>소스 파일\03. Objects</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteActor.h" />
+    <ClInclude Include="SpriteActor.h">
+      <Filter>소스 파일\03. Objects\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>소스 파일\03. Objects\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>소스 파일\03. Objects\Unity</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>소스 파일\04. Resources\05.Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameCoding.rc">
@@ -177,11 +197,20 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>소스 파일\04. Resources</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>소스 파일\03. Objects</Filter>
     </ClCompile>
     <ClCompile Include="SpriteActor.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\03. Objects\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>소스 파일\03. Objects\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>소스 파일\03. Objects\Unity</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>소스 파일\04. Resources\05.Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

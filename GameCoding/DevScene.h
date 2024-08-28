@@ -14,6 +14,7 @@ public:
 	virtual void Render(HDC hdc) override;
 
 public:
-	Actor* _actor;
+	Actor* _background;
+	Actor* _player;
 };
 

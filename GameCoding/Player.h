@@ -1,28 +1,15 @@
 #pragma once
+#include "SpriteActor.h"
 
-#include "FlipbookActor.h"
-
-class Flipbook;
-class Collider;
-
-class Player : public FlipbookActor
+class Player : public SpriteActor
 {
-	using Super = FlipbookActor;
+	using Super = SpriteActor;
 public:
 	Player();
-	virtual ~Player() override;
+	virtual ~Player();
 
 	virtual void BeginPlay() override;
 	virtual void Tick() override;
 	virtual void Render(HDC hdc) override;
-
-	virtual void OnComponentBeginOverlap(Collider* collider, Collider* other) override;
-	virtual void OnComponentEndOverlap(Collider* collider, Collider* other) override;
-
-private:
-	Flipbook* _flipbookUp = nullptr;
-	Flipbook* _flipbookDown = nullptr;
-	Flipbook* _flipbookLeft = nullptr;
-	Flipbook* _flipbookRight = nullptr;
 };
 
