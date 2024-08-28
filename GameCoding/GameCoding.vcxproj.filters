@@ -101,9 +101,6 @@
     <ClInclude Include="ResourceBase.h">
       <Filter>소스 파일\04. Resources</Filter>
     </ClInclude>
-    <ClInclude Include="LineMesh.h">
-      <Filter>소스 파일\04. Resources\Game</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>소스 파일\01. Manager</Filter>
     </ClInclude>
@@ -163,9 +160,6 @@
     </ClCompile>
     <ClCompile Include="ResourceBase.cpp">
       <Filter>소스 파일\04. Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="LineMesh.cpp">
-      <Filter>소스 파일\04. Resources\Game</Filter>
     </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>소스 파일\01. Manager</Filter>

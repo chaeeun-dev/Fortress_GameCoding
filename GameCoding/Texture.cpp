@@ -34,5 +34,5 @@ Texture* Texture::LoadBmp(HWND hwnd, const wstring& path)
 
 HDC Texture::GetDC()
 {
-	return HDC();
+	return _hdc;
 }

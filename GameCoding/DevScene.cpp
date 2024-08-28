@@ -37,7 +37,7 @@ void DevScene::Update()
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 }
 
-#include "pch.h"
+
 void DevScene::Render(HDC hdc)
 {
 	Texture* tex = GET_SINGLE(ResourceManager)->GetTexture(L"Stage01");

@@ -149,7 +149,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCoding.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="LineMesh.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
@@ -170,7 +169,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCoding.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="LineMesh.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

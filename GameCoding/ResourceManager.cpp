@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "ResourceManager.h"
-#include "LineMesh.h"
 #include "Texture.h"
 
 ResourceManager::~ResourceManager()
