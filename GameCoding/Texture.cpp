@@ -34,5 +34,6 @@ Texture* Texture::LoadBmp(HWND hwnd, const wstring& path)
 
 HDC Texture::GetDC()
 {
+	//return HDC();	// 삽질 기록..^^ - ctrl + . + enter 눌러서 기본적으로 생성되는 함수 내용물을 안 고쳐서!!!
 	return _hdc;
 }
