@@ -22,6 +22,6 @@ void SpriteRenderer::Render(HDC hdc)
 		size.x, size.y,
 		_sprite->GetDC(),
 		_sprite->GetPos().x,
-		_sprite->GetPos().y
-		SRCCOPY)
+		_sprite->GetPos().y,
+		SRCCOPY);
 }

@@ -51,7 +51,7 @@
     <Filter Include="소스 파일\03. Objects\Unity">
       <UniqueIdentifier>{775c8106-9bf8-4744-92c9-e062f226fa0f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\04. Resources\05.Component">
+    <Filter Include="소스 파일\05.Component">
       <UniqueIdentifier>{53bbc71f-12ac-45be-8a0f-9d192cf990dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -135,10 +135,13 @@
       <Filter>소스 파일\03. Objects\Unity</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>소스 파일\04. Resources\05.Component</Filter>
+      <Filter>소스 파일\05.Component</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
-      <Filter>소스 파일\04. Resources\05.Component</Filter>
+      <Filter>소스 파일\05.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMoveScript.h">
+      <Filter>소스 파일\04. Resources\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -213,10 +216,13 @@
       <Filter>소스 파일\03. Objects\Unity</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>소스 파일\04. Resources\05.Component</Filter>
+      <Filter>소스 파일\05.Component</Filter>
     </ClCompile>
     <ClCompile Include="SpriteRenderer.cpp">
-      <Filter>소스 파일\04. Resources\05.Component</Filter>
+      <Filter>소스 파일\05.Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMoveScript.cpp">
+      <Filter>소스 파일\04. Resources\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
