@@ -10,6 +10,7 @@
 #include "Actor.h"
 #include "SpriteActor.h"
 #include "Player.h"
+#include "Flipbook.h"
 
 DevScene::DevScene()
 {
@@ -42,6 +43,28 @@ void DevScene::Init()
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Exit_Off", GET_SINGLE(ResourceManager)->GetTexture(L"Stage01"), 0, 0, 150, 150);
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Exit_On", GET_SINGLE(ResourceManager)->GetTexture(L"Stage01"), 150, 0, 150, 150);
 
+	// 이렇게 플립북 만들어 놓으면 언제든지 사용할 수 있게됨!
+	{
+		Texture* texture = GET_SINGLE(ResourceManager)->GetTexture(L"PlayerUp");
+		Flipbook* fb = GET_SINGLE(ResourceManager)->CreateFlipbook(L"FB_MoveUp");
+		fb->SetInfo({ texture, L"FB_MoveUp", { 200, 200 }, 0, 9, 1, 0.5f });
+	}
+	{
+		Texture* texture = GET_SINGLE(ResourceManager)->GetTexture(L"PlayerDown");
+		Flipbook* fb = GET_SINGLE(ResourceManager)->CreateFlipbook(L"FB_MoveDown");
+		fb->SetInfo({ texture, L"FB_MoveDown", { 200, 200 }, 0, 9, 1, 0.5f });
+	}
+	{
+		Texture* texture = GET_SINGLE(ResourceManager)->GetTexture(L"PlayerLeft");
+		Flipbook* fb = GET_SINGLE(ResourceManager)->CreateFlipbook(L"FB_MoveLeft");
+		fb->SetInfo({ texture, L"FB_MoveLeft", { 200, 200 }, 0, 9, 1, 0.5f });
+	}
+	{
+		Texture* texture = GET_SINGLE(ResourceManager)->GetTexture(L"PlayerRight");
+		Flipbook* fb = GET_SINGLE(ResourceManager)->CreateFlipbook(L"FB_MoveRight");
+		fb->SetInfo({ texture, L"FB_MoveRight", { 200, 200 }, 0, 9, 1, 0.5f });
+	}
+
 	{
 		Sprite* sprite = GET_SINGLE(ResourceManager)->GetSprite(L"Stage01");
 
@@ -49,34 +72,35 @@ void DevScene::Init()
 		background->SetSprite(sprite);
 		background->SetPos(Vec2(0, 0));
 
-		_background = background;
+		_actors.push_back(background);
 	}
 	
 	{
-		Sprite* sprite = GET_SINGLE(ResourceManager)->GetSprite(L"Start_On");
-
 		Player* player = new Player();
-		player->SetSprite(sprite);
-		player->SetPos(Vec2(0, 0));
-
-		_player = player;
+		_actors.push_back(player);
 	}
 	
-	_background->BeginPlay();
-	_player->BeginPlay();
+	for (Actor* actor : _actors)
+	{
+		actor->BeginPlay();
+	}
 }
 
 void DevScene::Update()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
-	_background->Tick();
-	_player->Tick();
+	for (Actor* actor : _actors)
+	{
+		actor->Tick();
+	}
 }
 
 
 void DevScene::Render(HDC hdc)
 {
-	_background->Render(hdc);
-	_player->Render(hdc);
+	for (Actor* actor : _actors)
+	{
+		actor->Render(hdc);
+	}
 }

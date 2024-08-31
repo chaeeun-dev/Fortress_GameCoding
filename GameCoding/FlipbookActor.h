@@ -8,7 +8,7 @@ class FlipbookActor : public Actor
 	using Super = Actor;
 public:
 	FlipbookActor();
-	virtual ~FlipbookActor() override;
+	virtual ~FlipbookActor();
 
 	virtual void BeginPlay() override;
 	virtual void Tick() override;
@@ -20,6 +20,6 @@ public:
 protected:
 	Flipbook* _flipbook = nullptr;
 	float _sumTime = 0.f;
-	int32 _idx = 0;
+	int32 _idx = 0;			// 몇 번째 애니메이션을 실행할지
 };
 
