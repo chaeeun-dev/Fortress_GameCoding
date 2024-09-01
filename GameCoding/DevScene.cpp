@@ -65,42 +65,61 @@ void DevScene::Init()
 		fb->SetInfo({ texture, L"FB_MoveRight", { 200, 200 }, 0, 9, 1, 0.5f });
 	}
 
+	// 레이어를 설정하니까 background보다 player를 먼저 배치해도 아무 문제가 없음!
+	{
+		Player* player = new Player();
+		AddActor(player);
+	}
+
 	{
 		Sprite* sprite = GET_SINGLE(ResourceManager)->GetSprite(L"Stage01");
 
 		SpriteActor* background = new SpriteActor();
 		background->SetSprite(sprite);
+		background->SetLayer(LAYER_BACKGROUND);
 		background->SetPos(Vec2(0, 0));
 
-		_actors.push_back(background);
+		AddActor(background);
 	}
 	
-	{
-		Player* player = new Player();
-		_actors.push_back(player);
-	}
+
 	
-	for (Actor* actor : _actors)
-	{
-		actor->BeginPlay();
-	}
+	for (const vector<Actor*>& actors : _actors)
+		for (Actor* actor : actors)
+			actor->BeginPlay();
 }
 
 void DevScene::Update()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
-	for (Actor* actor : _actors)
-	{
-		actor->Tick();
-	}
+	for (const vector<Actor*>& actors : _actors)
+		for (Actor* actor : actors)
+			actor->Tick();
 }
 
 
 void DevScene::Render(HDC hdc)
 {
-	for (Actor* actor : _actors)
-	{
+	for (const vector<Actor*>& actors : _actors)
+		for (Actor* actor : actors)
 		actor->Render(hdc);
-	}
+}
+
+void DevScene::AddActor(Actor* actor)
+{
+	if (actor == nullptr)
+		return;
+
+	_actors[actor->GetLayer()].push_back(actor);
+}
+
+void DevScene::RemoveActor(Actor* actor)
+{
+	if (actor == nullptr)
+		return;
+
+	vector<Actor*>& v = _actors[actor->GetLayer()];
+
+	v.erase(std::remove(v.begin(), v.end(), actor));	// remove와 erase는 짝꿍!!
 }
