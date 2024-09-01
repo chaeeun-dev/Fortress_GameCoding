@@ -4,6 +4,7 @@
 #include "ResourceManager.h"
 #include "TimeManager.h"
 #include "Flipbook.h"
+#include "CameraComponent.h"
 
 Player::Player()
 {
@@ -13,6 +14,9 @@ Player::Player()
 	_flipbookRight = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_MoveRight");
 	_flipbookLeft = GET_SINGLE(ResourceManager)->GetFlipbook(L"FB_MoveLeft");
 	
+	// 카메라 컴포넌트를 붙여보자
+	CameraComponent* camera = new CameraComponent();
+	AddComponent(camera);
 }
 
 Player::~Player()
@@ -24,6 +28,8 @@ void Player::BeginPlay()
 	Super::BeginPlay();		// 상위 계층 코드 꼭 넣기
 
 	SetFlipbook(_flipbookRight);
+
+
 }
 
 void Player::Tick()

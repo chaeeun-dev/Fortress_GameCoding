@@ -140,6 +140,7 @@
     <ClInclude Include="Flipbook.h">
       <Filter>소스 파일\04. Resources</Filter>
     </ClInclude>
+    <ClInclude Include="CameraComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameCoding.rc">
@@ -220,6 +221,9 @@
     </ClCompile>
     <ClCompile Include="Flipbook.cpp">
       <Filter>소스 파일\04. Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

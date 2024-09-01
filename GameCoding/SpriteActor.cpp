@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "SpriteActor.h"
 #include "Sprite.h"
+#include "SceneManager.h"
 
 SpriteActor::SpriteActor()
 {
@@ -29,24 +30,27 @@ void SpriteActor::Render(HDC hdc)
 
 	Vec2Int size = _sprite->GetSize();
 
-	//::BitBlt(hdc,
-	//	(int32)_pos.x - size.x / 2, (int32)_pos.y - size.y / 2,		// 플레이어의 중심을 기준으로 절반 위치를 뺀 게 시작점
+	Vec2 cameraPos = GET_SINGLE(SceneManager)->GetCameraPos();
+
+	//::TransparentBlt(hdc,
+	//	(int32)_pos.x - size.x / 2 - ((int32)cameraPos.x - GWinSizeX / 2),
+	//	(int32)_pos.y - size.y / 2 - ((int32)cameraPos.y - GWinSizeY / 2),		// 플레이어의 중심을 기준으로 절반 위치를 뺀 게 시작점
 	//	size.x,
 	//	size.y,
 	//	_sprite->GetDC(),
 	//	_sprite->GetPos().x,
 	//	_sprite->GetPos().y,
-	//	SRCCOPY);
+	//	_sprite->GetSize().x,
+	//	_sprite->GetSize().y,
+	//	RGB(255, 255, 255));
 
-	::TransparentBlt(hdc,
-		(int32)_pos.x - size.x / 2,
-		(int32)_pos.y - size.y / 2,		// 플레이어의 중심을 기준으로 절반 위치를 뺀 게 시작점
+	::BitBlt(hdc,
+		(int32)_pos.x - size.x / 2 - ((int32)cameraPos.x - GWinSizeX / 2),
+		(int32)_pos.y - size.y / 2 - ((int32)cameraPos.y - GWinSizeY / 2),		// 플레이어의 중심을 기준으로 절반 위치를 뺀 게 시작점
 		size.x,
 		size.y,
 		_sprite->GetDC(),
 		_sprite->GetPos().x,
 		_sprite->GetPos().y,
-		_sprite->GetSize().x,
-		_sprite->GetSize().y,
-		RGB(255, 255, 255));
+		SRCCOPY);
 }

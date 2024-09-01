@@ -22,9 +22,9 @@ void CameraComponent::TickComponent()
 	if (_owner == nullptr)
 		return;
 
-	Vec2 pos = _owner->GetPos();
+	Vec2 pos = _owner->GetPos();	// 주인의 위치
 
-	// TEMP
+	// clamp 함수로 카메라 위치 제한하기
 	pos.x = ::clamp(pos.x, 400.f, 3024.f - 400.f);
 	pos.y = ::clamp(pos.y, 300.f, 2064.f - 300.f);
 

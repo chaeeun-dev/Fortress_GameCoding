@@ -2,11 +2,20 @@
 #include "SpriteRenderer.h"
 #include "Sprite.h"
 
-void SpriteRenderer::Start()
+
+SpriteRenderer::SpriteRenderer()
 {
 }
 
-void SpriteRenderer::Update()
+SpriteRenderer::~SpriteRenderer()
+{
+}
+
+void SpriteRenderer::BeginPlay()
+{
+}
+
+void SpriteRenderer::TickComponent()
 {
 }
 

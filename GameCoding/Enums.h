@@ -7,3 +7,8 @@ enum class SceneType
 	GameScene,
 	EditScene,
 };
+
+enum LAYER_TYPE
+{
+
+};
