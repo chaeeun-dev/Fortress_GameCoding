@@ -10,16 +10,16 @@ void CollisionManager::Init()
 
 void CollisionManager::Update()
 {
-	vector<Collider*>& colliders = _colliders;
+	vector<Collider*>& colliders = _colliders;		// 혹시 collider가 삭제되면... 고민해보기
 
 	for (int32 i = 0; i < colliders.size(); i++)
 	{
-		for (int32 j = i + 1; j < colliders.size(); j++)
+		for (int32 j = i + 1; j < colliders.size(); j++)	// 짝이 지어져서 한 번씩은 실행이 됐기 때문에 0일 필요 없음
 		{
 			Collider* src = colliders[i];
 			Collider* dest = colliders[j];
 
-			if (src->CheckCollision(dest))
+			if (src->CheckCollision(dest))		// 충돌이 일어났으면
 			{
 				if (src->_collisionMap.contains(dest) == false)
 				{

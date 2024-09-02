@@ -11,6 +11,9 @@
 #include "SpriteActor.h"
 #include "Player.h"
 #include "Flipbook.h"
+#include "BoxCollider.h"
+#include "SphereCollider.h"
+#include "CollisionManager.h"
 
 DevScene::DevScene()
 {
@@ -68,9 +71,27 @@ void DevScene::Init()
 	// 레이어를 설정하니까 background보다 player를 먼저 배치해도 아무 문제가 없음!
 	{
 		Player* player = new Player();
+		{
+			SphereCollider* collider = new SphereCollider();
+			collider->SetRadius(100);
+			player->AddComponent(collider);
+			GET_SINGLE(CollisionManager)->AddCollider(collider);
+		}
 		AddActor(player);
 	}
 
+	// 충돌 검사를 위한 Actor 생성
+	{
+		Actor* player = new Actor();
+		{
+			SphereCollider* collider = new SphereCollider();
+			collider->SetRadius(100);
+			player->AddComponent(collider);
+			GET_SINGLE(CollisionManager)->AddCollider(collider);
+			player->SetPos({ 400, 200 });
+		}
+		AddActor(player);
+	}
 	{
 		Sprite* sprite = GET_SINGLE(ResourceManager)->GetSprite(L"Stage01");
 
@@ -82,8 +103,6 @@ void DevScene::Init()
 		AddActor(background);
 	}
 	
-
-	
 	for (const vector<Actor*>& actors : _actors)
 		for (Actor* actor : actors)
 			actor->BeginPlay();
@@ -93,9 +112,12 @@ void DevScene::Update()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
+	GET_SINGLE(CollisionManager)->Update();
+
 	for (const vector<Actor*>& actors : _actors)
 		for (Actor* actor : actors)
 			actor->Tick();
+
 }
 
 

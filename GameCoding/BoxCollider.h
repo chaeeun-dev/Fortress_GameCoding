@@ -19,6 +19,5 @@ public:
 	void SetSize(Vec2 size) { _size = size; }
 
 private:
-	Vec2 _size = {};
+	Vec2 _size = {};		// 너비 높이
 };
-

@@ -51,6 +51,12 @@
     <Filter Include="소스 파일\05.Component">
       <UniqueIdentifier>{53bbc71f-12ac-45be-8a0f-9d192cf990dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\05.Component\Camera">
+      <UniqueIdentifier>{c8a28c28-fcf9-407d-ace1-9325ca08bf2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05.Component\Collision">
+      <UniqueIdentifier>{ff7ce888-9d11-4995-8e03-dc08df207c21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCoding.h">
@@ -140,7 +146,21 @@
     <ClInclude Include="Flipbook.h">
       <Filter>소스 파일\04. Resources</Filter>
     </ClInclude>
-    <ClInclude Include="CameraComponent.h" />
+    <ClInclude Include="CameraComponent.h">
+      <Filter>소스 파일\05.Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>소스 파일\05.Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>소스 파일\05.Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollider.h">
+      <Filter>소스 파일\05.Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameCoding.rc">
@@ -223,7 +243,19 @@
       <Filter>소스 파일\04. Resources</Filter>
     </ClCompile>
     <ClCompile Include="CameraComponent.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\05.Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>소스 파일\05.Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>소스 파일\05.Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollider.cpp">
+      <Filter>소스 파일\05.Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>소스 파일\01. Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

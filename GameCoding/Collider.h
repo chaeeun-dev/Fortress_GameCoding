@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+// 충돌 여부 판별 
 
 class BoxCollider;
 class SphereCollider;
@@ -14,10 +15,10 @@ public:
 	virtual void TickComponent() override;
 	virtual void Render(HDC hdc) override;
 
-	virtual bool CheckCollision(Collider* other);
+	virtual bool CheckCollision(Collider* other);		// 충돌하고 있는가?
 
 	ColliderType GetColliderType() { return _colliderType; }
-	void SetShowDebug(bool show) { _showDebug = show; }
+	void SetShowDebug(bool show) { _showDebug = show; }		// 디버그 모드에서 충돌 영역 보여주기
 
 public:
 	static bool CheckCollisionBox2Box(BoxCollider* b1, BoxCollider* b2);
@@ -29,6 +30,5 @@ protected:
 	bool _showDebug = true;
 
 public:
-	unordered_set<Collider*> _collisionMap;
+	//unordered_set<Collider*> _collisionMap;
 };
-

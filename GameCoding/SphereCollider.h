@@ -19,6 +19,5 @@ public:
 	void SetRadius(float radius) { _radius = radius; }
 
 private:
-	float _radius = 0.f;
+	float _radius = 0.f;	// ¹İÁö¸§
 };
-

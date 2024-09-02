@@ -4,6 +4,7 @@
 #include "BoxCollider.h"
 #include "Actor.h"
 
+
 Collider::Collider(ColliderType colliderType) : _colliderType(colliderType)
 {
 
