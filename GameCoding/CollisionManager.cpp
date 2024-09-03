@@ -21,18 +21,20 @@ void CollisionManager::Update()
 
 			if (src->CheckCollision(dest))		// 충돌이 일어났으면
 			{
-				if (src->_collisionMap.contains(dest) == false)
+				if (src->_collisionMap.contains(dest) == false)		// 아직까지 충돌한 기록이 없으면(_collisionMap에 저장된 값이 없다)
 				{
+					// 충돌 기록 넣어주기
 					src->GetOwner()->OnComponentBeginOverlap(src, dest);
 					dest->GetOwner()->OnComponentBeginOverlap(dest, src);
 					src->_collisionMap.insert(dest);
 					dest->_collisionMap.insert(src);
 				}
 			}
-			else
+			else    // 충돌이 있었는데 충돌이 사라짐
 			{
 				if (src->_collisionMap.contains(dest))
 				{
+					// 지워주기 
 					src->GetOwner()->OnComponentEndOverlap(src, dest);
 					dest->GetOwner()->OnComponentEndOverlap(dest, src);
 					src->_collisionMap.erase(dest);

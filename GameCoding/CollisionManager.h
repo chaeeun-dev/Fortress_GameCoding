@@ -14,5 +14,5 @@ public:
 	void RemoveCollider(Collider* collider);
 
 private:
-	vector<Collider*> _colliders;
+	vector<Collider*> _colliders;		
 };

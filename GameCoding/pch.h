@@ -13,6 +13,8 @@
 #include <unordered_map>
 #include <string>
 #include <algorithm>
+#include <set>
+#include <unordered_set>
 using namespace std;
 
 // C++ 20 (파일 입출력에 용이한 함수 헤더들)

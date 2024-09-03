@@ -65,3 +65,11 @@ void Player::Render(HDC hdc)
 {
 	Super::Render(hdc);
 }
+
+void Player::OnComponentBeginOverlap(Collider* collider, Collider* other)
+{
+}
+
+void Player::OnComponenteEndOverlap(Collider* collider, Collider* other)
+{
+}
