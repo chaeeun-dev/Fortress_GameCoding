@@ -173,6 +173,12 @@
     <ClInclude Include="Button.h">
       <Filter>소스 파일\06.UI</Filter>
     </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>소스 파일\06.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="testPanel.h">
+      <Filter>소스 파일\05.Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameCoding.rc">
@@ -277,6 +283,12 @@
     </ClCompile>
     <ClCompile Include="TestButton.cpp">
       <Filter>소스 파일\06.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>소스 파일\06.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="testPanel.cpp">
+      <Filter>소스 파일\05.Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

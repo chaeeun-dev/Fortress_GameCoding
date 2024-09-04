@@ -8,7 +8,7 @@ TestPanel::TestPanel()
 	{
 		Button* ui = new Button();
 		//ui->SetSprite(GET_SINGLE(ResourceManager)->GetSprite(L"Start"), BS_Default);
-		ui->SetPos({ 400, 200 });
+		ui->SetPos({ 400, 200 });		// 좌표는 절대좌표
 		ui->SetSize({ 650, 300 });
 		AddChild(ui);
 	}
@@ -19,7 +19,7 @@ TestPanel::TestPanel()
 		ui->SetPos({ 200, 200 });
 
 		//ui->_onClickMemFunc = &TestPanel::OnClickStartButton;
-		ui->AddOnClickDelegate(this, &TestPanel::OnClickStartButton);
+		ui->AddOnClickDelegate(this, &TestPanel::OnClickStartButton);	// 콜백함수 - 어떤 이벤트 발생시 함수 호출해줘, 이렇게 매핑하면 됨
 		AddChild(ui);
 	}
 	{

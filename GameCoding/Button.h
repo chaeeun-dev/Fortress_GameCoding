@@ -33,6 +33,7 @@ public:
 	void SetSprite(Sprite* sprite, ButtonState state) { _sprites[state] = sprite; }
 	void SetButtonState(ButtonState state);
 
+	void OnClickButton() { }
 protected:
 	Sprite* _currentSprite = nullptr;
 	Sprite* _sprites[BS_MaxCount] = {};		// 상태에 따라 스프라이트를 다르게 그리기 위해 
@@ -41,10 +42,11 @@ protected:
 	float _sumTime = 0.f;
 
 public:
+	// 여기부터는 어려우니까 이해 안 가면 넘어가도 됨... 어떤 식으로든 함수를 매핑하면 됨. 다른 방법 써도 됨!
 	template<typename T>
 	void AddOnClickDelegate(T* owner, void(T::* func)())
 	{
-		//_onClick = [owner, func]()
+		_onClick = [owner, func]()		// 캡처
 		{
 			(owner->*func)();
 		};

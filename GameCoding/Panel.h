@@ -3,7 +3,7 @@
 
 class Sprite;
 
-class Panel : public UI
+class Panel : public UI		// UI를 묶어서 관리하는 용도 - 많은 UI를 들고 있을 수 있음!
 {
 	using Super = UI;
 public:
@@ -20,4 +20,3 @@ public:
 private:
 	vector<UI*> _children;
 };
-

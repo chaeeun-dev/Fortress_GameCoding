@@ -19,6 +19,8 @@ void Button::BeginPlay()
 	Super::BeginPlay();
 
 	SetButtonState(BS_Default);
+
+	AddOnClickDelegate(this, &Button::OnClickButton);
 }
 
 void Button::Tick()
@@ -48,9 +50,9 @@ void Button::Tick()
 			if (_state == BS_Pressed)		// 원래는 누르고 있었는데 뗐음
 			{
 				SetButtonState(BS_Clicked);
-				// OnClicked
-				/*if (_onClick)
-					_onClick();*/
+				 //OnClicked
+				if (_onClick)
+					_onClick();
 			}
 		}
 	}
