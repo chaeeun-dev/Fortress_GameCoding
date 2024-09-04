@@ -38,19 +38,19 @@ void Button::Tick()
 
 	if (IsMouseInRect())
 	{
-		if (GET_SINGLE(InputManager)->GetButton(KeyType::LeftMouse))
+		if (GET_SINGLE(InputManager)->GetButton(KeyType::LeftMouse))		// 마우스를 누르고 있는 상태
 		{
 			SetButtonState(BS_Pressed);
-			// OnPressed
+			// OnPressed 호출할 일 있으면 여기서 호출
 		}
 		else
 		{
-			if (_state == BS_Pressed)
+			if (_state == BS_Pressed)		// 원래는 누르고 있었는데 뗐음
 			{
 				SetButtonState(BS_Clicked);
 				// OnClicked
-				if (_onClick)
-					_onClick();
+				/*if (_onClick)
+					_onClick();*/
 			}
 		}
 	}
@@ -62,7 +62,7 @@ void Button::Tick()
 
 void Button::Render(HDC hdc)
 {
-	if (_currentSprite)
+	if (_currentSprite)		// 스프라이트가 있으면 스프라이트로 그리고
 	{
 		::TransparentBlt(hdc,
 			(int32)_pos.x - _size.x / 2,
@@ -76,7 +76,7 @@ void Button::Render(HDC hdc)
 			_currentSprite->GetSize().y,
 			_currentSprite->GetTransparent());
 	}
-	else
+	else				// 스프라이트가 없으면 사각형 그림
 	{
 		Utils::DrawRect(hdc, _pos, _size.x, _size.y);
 	}

@@ -2,7 +2,7 @@
 
 #include "Button.h"
 
-class TestButton : public Button
+class TestButton : public Button		
 {
 	using Super = Button;
 public:

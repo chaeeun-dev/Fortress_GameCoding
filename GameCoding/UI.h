@@ -14,7 +14,7 @@ public:
 	void SetPos(Vec2 pos) { _pos = pos; }
 	Vec2 GetPos() { return _pos; }
 
-	RECT GetRect();
+	RECT GetRect();		// UI가 사각형이라고 가정하고 만듦, 사각형이 아니라면 추가해야함
 	bool IsMouseInRect();
 	
 protected:
@@ -22,4 +22,3 @@ protected:
 	Vec2Int _size = {150, 150};
 
 };
-

@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 class Actor;
+class UI;
 
 class DevScene : public Scene
 {
@@ -18,5 +19,7 @@ public:
 
 public:
 	vector<Actor*> _actors[LAYER_MAXCOUNT];		// 레이어별로 액터 관리
+
+	vector<UI*> _uis;
 };
 

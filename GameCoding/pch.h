@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <set>
 #include <unordered_set>
+#include "functional"
 using namespace std;
 
 // C++ 20 (파일 입출력에 용이한 함수 헤더들)
