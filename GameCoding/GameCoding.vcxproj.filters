@@ -60,6 +60,9 @@
     <Filter Include="소스 파일\06.UI">
       <UniqueIdentifier>{da4c5139-e1e3-42b1-b4dd-21a47e4cbe80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\04. Resources\Paper2D">
+      <UniqueIdentifier>{57ffb750-73a0-45ca-ad2a-16fc84c0fed7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCoding.h">
@@ -122,12 +125,6 @@
     <ClInclude Include="Values.h">
       <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>소스 파일\04. Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>소스 파일\04. Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>소스 파일\03. Objects</Filter>
     </ClInclude>
@@ -145,9 +142,6 @@
     </ClInclude>
     <ClInclude Include="FlipbookActor.h">
       <Filter>소스 파일\03. Objects\Unreal</Filter>
-    </ClInclude>
-    <ClInclude Include="Flipbook.h">
-      <Filter>소스 파일\04. Resources</Filter>
     </ClInclude>
     <ClInclude Include="CameraComponent.h">
       <Filter>소스 파일\05.Component\Camera</Filter>
@@ -167,17 +161,23 @@
     <ClInclude Include="UI.h">
       <Filter>소스 파일\06.UI</Filter>
     </ClInclude>
-    <ClInclude Include="TestButton.h">
-      <Filter>소스 파일\06.UI</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>소스 파일\06.UI</Filter>
     </ClInclude>
     <ClInclude Include="Panel.h">
       <Filter>소스 파일\06.UI</Filter>
     </ClInclude>
-    <ClInclude Include="testPanel.h">
-      <Filter>소스 파일\05.Component</Filter>
+    <ClInclude Include="Flipbook.h">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -233,12 +233,6 @@
     <ClCompile Include="ResourceManager.cpp">
       <Filter>소스 파일\01. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>소스 파일\04. Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>소스 파일\04. Resources</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>소스 파일\03. Objects</Filter>
     </ClCompile>
@@ -256,9 +250,6 @@
     </ClCompile>
     <ClCompile Include="FlipbookActor.cpp">
       <Filter>소스 파일\03. Objects\Unreal</Filter>
-    </ClCompile>
-    <ClCompile Include="Flipbook.cpp">
-      <Filter>소스 파일\04. Resources</Filter>
     </ClCompile>
     <ClCompile Include="CameraComponent.cpp">
       <Filter>소스 파일\05.Component\Camera</Filter>
@@ -281,14 +272,20 @@
     <ClCompile Include="Button.cpp">
       <Filter>소스 파일\06.UI</Filter>
     </ClCompile>
-    <ClCompile Include="TestButton.cpp">
-      <Filter>소스 파일\06.UI</Filter>
-    </ClCompile>
     <ClCompile Include="Panel.cpp">
       <Filter>소스 파일\06.UI</Filter>
     </ClCompile>
-    <ClCompile Include="testPanel.cpp">
-      <Filter>소스 파일\05.Component</Filter>
+    <ClCompile Include="Flipbook.cpp">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>소스 파일\04. Resources\Paper2D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
