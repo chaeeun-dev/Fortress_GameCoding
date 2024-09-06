@@ -94,6 +94,8 @@ void DevScene::Init()
 		}
 		AddActor(player);
 	}
+
+	// 배경 그리기
 	{
 		Sprite* sprite = GET_SINGLE(ResourceManager)->GetSprite(L"Stage01");
 

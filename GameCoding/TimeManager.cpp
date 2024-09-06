@@ -3,7 +3,7 @@
 
 void TimeManager::Init()
 {
-	::QueryPerformanceFrequency(reinterpret_cast<LARGE_INTEGER*>(&_frequency));
+	::QueryPerformanceFrequency(reinterpret_cast<LARGE_INTEGER*>(&_frequency));		// 성능 카운터의 빈도를 검색
 	::QueryPerformanceCounter(reinterpret_cast<LARGE_INTEGER*>(&_prevCount)); // CPU 클럭
 }
 
