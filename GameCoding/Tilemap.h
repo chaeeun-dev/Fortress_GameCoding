@@ -4,7 +4,15 @@
 struct Tile
 {
 	// TODO
-	int32 value = 0;
+	int32 value = 0;	// 0번이면 O, 1번이면 X 이런 식으로 그리는 방식
+};
+
+enum TILE_SIZE
+{
+	TILE_WIDTH = 63,	// 타일 까는 개수
+	TILE_HEIHGT = 43,
+	TILE_SIZEX = 48,	// 픽셀 사이즈 -> 맵의 너비 : 3024 = 63 x 48
+	TILE_SIZEY = 48
 };
 
 class Tilemap : public ResourceBase

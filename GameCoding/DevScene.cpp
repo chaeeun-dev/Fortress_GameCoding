@@ -16,6 +16,8 @@
 #include "CollisionManager.h"
 #include "UI.h"
 #include "Button.h"
+#include "Tilemap.h"
+#include "TilemapActor.h"
 
 DevScene::DevScene()
 {
@@ -29,7 +31,9 @@ DevScene::~DevScene()
 
 void DevScene::Init()
 {
+	// Texture 리소스 원본 그 자체 
 	GET_SINGLE(ResourceManager)->LoadTexture(L"Stage01", L"Sprite\\Map\\Stage01.bmp");
+	GET_SINGLE(ResourceManager)->LoadTexture(L"Tile", L"Sprite\\Map\\Tile.bmp", RGB(128, 128, 128));
 	//GET_SINGLE(ResourceManager)->LoadTexture(L"Sword", L"Sprite\\Item\\Sward.bmp");
 	GET_SINGLE(ResourceManager)->LoadTexture(L"Potion", L"Sprite\\UI\\Mp.bmp");
 	GET_SINGLE(ResourceManager)->LoadTexture(L"PlayerDown", L"Sprite\\Player\\PlayerDown.bmp", RGB(128, 128, 128));		// 플레이어 이미지 배경이 회색이기 때문에.. 
@@ -40,7 +44,10 @@ void DevScene::Init()
 	GET_SINGLE(ResourceManager)->LoadTexture(L"Edit", L"Sprite\\UI\\Edit.bmp");
 	GET_SINGLE(ResourceManager)->LoadTexture(L"Exit", L"Sprite\\UI\\Exit.bmp");
 
+	// Sprite 필요한 부분을 자른 것
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Stage01", GET_SINGLE(ResourceManager)->GetTexture(L"Stage01"));
+	GET_SINGLE(ResourceManager)->CreateSprite(L"TileO", GET_SINGLE(ResourceManager)->GetTexture(L"Tile"), 0, 0, 48, 48);
+	GET_SINGLE(ResourceManager)->CreateSprite(L"TileX", GET_SINGLE(ResourceManager)->GetTexture(L"Stage01"), 48, 0, 48, 48);
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Start_Off", GET_SINGLE(ResourceManager)->GetTexture(L"Start"), 0, 0, 150, 150);
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Start_On", GET_SINGLE(ResourceManager)->GetTexture(L"Start"), 150, 0, 150, 150);
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Edit_Off", GET_SINGLE(ResourceManager)->GetTexture(L"Edit"), 0, 0, 150, 150);
@@ -73,11 +80,12 @@ void DevScene::Init()
 	// 레이어를 설정하니까 background보다 player를 먼저 배치해도 아무 문제가 없음!
 	{
 		Player* player = new Player();
+		player->SetPos({ 100, 100 });
 		{
-			SphereCollider* collider = new SphereCollider();
-			collider->SetRadius(100);
-			player->AddComponent(collider);
-			GET_SINGLE(CollisionManager)->AddCollider(collider);
+			//SphereCollider* collider = new SphereCollider();
+			//collider->SetRadius(100);
+			//player->AddComponent(collider);
+			//GET_SINGLE(CollisionManager)->AddCollider(collider);
 		}
 		AddActor(player);
 	}
@@ -101,8 +109,9 @@ void DevScene::Init()
 
 		SpriteActor* background = new SpriteActor();
 		background->SetSprite(sprite);
+		const Vec2Int size = sprite->GetSize();
 		background->SetLayer(LAYER_BACKGROUND);
-		background->SetPos(Vec2(0, 0));
+		background->SetPos(Vec2((float)size.x / 2, (float)size.y / 2));
 
 		AddActor(background);
 	}
