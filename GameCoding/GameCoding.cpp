@@ -42,7 +42,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		}
 		else
         {
-            uint64 now = ::GetTickCount64();
+            uint64 now = ::GetTickCount64();    // 시스템이 시작된 후 경과된 시간(밀리초)을 검색합니다.
 
             //if (now - prevTick >= 30)
             {
