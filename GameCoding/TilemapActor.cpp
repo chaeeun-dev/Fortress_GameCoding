@@ -22,6 +22,8 @@ void TilemapActor::BeginPlay()
 void TilemapActor::Tick()
 {
 	Super::Tick();
+
+	TilePicking();
 }
 
 void TilemapActor::Render(HDC hdc)
@@ -48,9 +50,21 @@ void TilemapActor::Render(HDC hdc)
 
 	Vec2 cameraPos = GET_SINGLE(SceneManager)->GetCameraPos();		
 
-	for (int32 y = 0; y < mapSize.y; y++)
+	// 컬링 : 보여야 할 애들만 보여주기(카메라가 찍는 부분 외에는 그리지 않아서 프레임 속도 낮아지는 문제 완화)
+	int32 leftX = ((int32)cameraPos.x - GWinSizeX / 2);		// 카메라의 좌상단 위치
+	int32 leftY = ((int32)cameraPos.y - GWinSizeY / 2);
+	int32 rightX = ((int32)cameraPos.x + GWinSizeX / 2);	// 카메라의 우하단 위치
+	int32 rightY = ((int32)cameraPos.y + GWinSizeY / 2);
+
+	int32 startX = (leftX - _pos.x) / TILE_SIZEX;
+	int32 startY = (leftY - _pos.y) / TILE_SIZEY;
+	int32 endX = (leftY + _pos.x) / TILE_SIZEX;
+	int32 endY = (leftY + _pos.y) / TILE_SIZEY;
+	
+
+	for (int32 y = startY; y <= endY; y++)
 	{
-		for (int32 x = 0; x < mapSize.x; x++)
+		for (int32 x = startX; x <= endX; x++)
 		{
 			if (x < 0 || x >= mapSize.x)		// 예외 처리
 				continue;
@@ -66,9 +80,8 @@ void TilemapActor::Render(HDC hdc)
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteO->GetDC(),
-					//spriteO->GetPos().x,
-					//spriteO->GetPos().y,
-					0, 0,
+					spriteO->GetPos().x,
+					spriteO->GetPos().y,
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteO->GetTransparent());
@@ -81,14 +94,34 @@ void TilemapActor::Render(HDC hdc)
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteX->GetDC(),
-					//spriteX->GetPos().x,
-					//spriteX->GetPos().y,
-					0, 0,
+					spriteX->GetPos().x,
+					spriteX->GetPos().y,
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteX->GetTransparent());
 				break;
 			}
 		}
+	}
+}
+
+void TilemapActor::TilePicking()
+{
+	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::LeftMouse))
+	{
+		Vec2 cameraPos = GET_SINGLE(SceneManager)->GetCameraPos();
+		int32 screenX = cameraPos.x - GWinSizeX / 2;
+		int32 screenY = cameraPos.y - GWinSizeY / 2;
+
+		POINT mousePos = GET_SINGLE(InputManager)->GetMousePos();
+		int32 posX = mousePos.x + screenX;
+		int32 posY = mousePos.y + screenY;
+
+		int32 x = posX / TILE_SIZEX;
+		int32 y = posY / TILE_SIZEY;
+
+		Tile* tile = _tilemap->GetTileAt({ x, y });
+		if (tile)
+			tile->value = 1;
 	}
 }

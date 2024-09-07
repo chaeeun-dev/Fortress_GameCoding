@@ -15,6 +15,8 @@ public:
 	virtual void Tick() override;
 	virtual void Render(HDC hdc) override;
 
+	void TilePicking();
+
 	void SetTilemap(Tilemap* tilemap) { _tilemap = tilemap; }
 	Tilemap* GetTilemap() { return _tilemap; }
 

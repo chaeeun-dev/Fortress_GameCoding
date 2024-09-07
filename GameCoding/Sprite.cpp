@@ -14,5 +14,4 @@ HDC Sprite::GetDC()
 int32 Sprite::GetTransparent()
 {
 	return _texture->GetTransparent();
-	//return RGB(255, 0, 255);
 }
