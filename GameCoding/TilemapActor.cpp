@@ -52,9 +52,9 @@ void TilemapActor::Render(HDC hdc)
 	{
 		for (int32 x = 0; x < mapSize.x; x++)
 		{
-			if (x < 0 || x > mapSize.x)		// 抗寇 贸府
+			if (x < 0 || x >= mapSize.x)		// 抗寇 贸府
 				continue;
-			if (y < 0 || y > mapSize.y)
+			if (y < 0 || y >= mapSize.y)
 				continue;
 
 			switch (tiles[y][x].value)
@@ -66,8 +66,9 @@ void TilemapActor::Render(HDC hdc)
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteO->GetDC(),
-					spriteO->GetPos().x,
-					spriteO->GetPos().y,
+					//spriteO->GetPos().x,
+					//spriteO->GetPos().y,
+					0, 0,
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteO->GetTransparent());
@@ -80,8 +81,9 @@ void TilemapActor::Render(HDC hdc)
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteX->GetDC(),
-					spriteX->GetPos().x,
-					spriteX->GetPos().y,
+					//spriteX->GetPos().x,
+					//spriteX->GetPos().y,
+					0, 0,
 					TILE_SIZEX,
 					TILE_SIZEY,
 					spriteX->GetTransparent());

@@ -47,7 +47,7 @@ void DevScene::Init()
 	// Sprite 필요한 부분을 자른 것
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Stage01", GET_SINGLE(ResourceManager)->GetTexture(L"Stage01"));
 	GET_SINGLE(ResourceManager)->CreateSprite(L"TileO", GET_SINGLE(ResourceManager)->GetTexture(L"Tile"), 0, 0, 48, 48);
-	GET_SINGLE(ResourceManager)->CreateSprite(L"TileX", GET_SINGLE(ResourceManager)->GetTexture(L"Stage01"), 48, 0, 48, 48);
+	GET_SINGLE(ResourceManager)->CreateSprite(L"TileX", GET_SINGLE(ResourceManager)->GetTexture(L"Tile"), 48, 0, 48, 48);
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Start_Off", GET_SINGLE(ResourceManager)->GetTexture(L"Start"), 0, 0, 150, 150);
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Start_On", GET_SINGLE(ResourceManager)->GetTexture(L"Start"), 150, 0, 150, 150);
 	GET_SINGLE(ResourceManager)->CreateSprite(L"Edit_Off", GET_SINGLE(ResourceManager)->GetTexture(L"Edit"), 0, 0, 150, 150);
@@ -91,17 +91,18 @@ void DevScene::Init()
 	}
 
 	// 충돌 검사를 위한 Actor 생성
-	{
-		Actor* player = new Actor();
-		{
-			SphereCollider* collider = new SphereCollider();
-			collider->SetRadius(100);
-			player->AddComponent(collider);
-			GET_SINGLE(CollisionManager)->AddCollider(collider);
-			player->SetPos({ 400, 200 });
-		}
-		AddActor(player);
-	}
+	//{
+	//	// UE style
+	//	Actor* player = new Actor();
+	//	{
+	//		SphereCollider* collider = new SphereCollider();
+	//		collider->SetRadius(100);
+	//		player->AddComponent(collider);
+	//		GET_SINGLE(CollisionManager)->AddCollider(collider);
+	//		player->SetPos({ 400, 200 });
+	//	}
+	//	AddActor(player);
+	//}
 
 	// 배경 그리기
 	{
@@ -115,7 +116,22 @@ void DevScene::Init()
 
 		AddActor(background);
 	}
-	
+
+	{
+		TilemapActor* actor = new TilemapActor();
+		AddActor(actor);
+
+		_tilemapActor = actor;
+		{
+			auto* tm = GET_SINGLE(ResourceManager)->CreateTilemap(L"Tilemap_01");
+			tm->SetMapSize({ 63, 43 });
+			tm->SetTileSize(48);
+
+			_tilemapActor->SetTilemap(tm);
+			_tilemapActor->SetShowDebug(true);
+		}
+	}
+
 	Super::Init();
 }
 
@@ -130,5 +146,9 @@ void DevScene::Update()
 void DevScene::Render(HDC hdc)
 {
 	Super::Render(hdc);
+}
+
+void DevScene::Clear()
+{
 }
 
