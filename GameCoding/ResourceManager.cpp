@@ -99,10 +99,22 @@ Tilemap* ResourceManager::CreateTilemap(const wstring& key)
 
 void ResourceManager::SaveTilemap(const wstring& key, const wstring& path)
 {
+	Tilemap* tm = GetTilemap(key);
+
+	fs::path fullPath = _resourcePath / path;			// 전체 경로
+	tm->SaveFile(fullPath);
 }
 
 Tilemap* ResourceManager::LoadTilemap(const wstring& key, const wstring& path)
 {
-	return nullptr;
+	Tilemap* tm = nullptr;
+
+	if (_tilemaps.find(key) == _tilemaps.end())		// _tilemaps가 비었으면 
+		_tilemaps[key] = new Tilemap();		// 새로 만들어주기
+
+	fs::path fullPath = _resourcePath / path;			// 전체 경로
+	tm->LoadFile(fullPath);
+
+	return tm;
 }
 

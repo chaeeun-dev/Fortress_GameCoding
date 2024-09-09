@@ -140,6 +140,12 @@ void DevScene::Update()
 	Super::Update();
 
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
+	
+	// 파일 저장 - Q 버튼을 눌렀을 때
+	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::Q))
+		GET_SINGLE(ResourceManager)->SaveTilemap(L"Tilemap_01", L"Tilemap\\Tilemap01.txt");
+	else if (GET_SINGLE(InputManager)->GetButton(KeyType::E))
+		GET_SINGLE(ResourceManager)->LoadTilemap(L"Tilemap_01", L"Tilemap\\Tilemap01.txt");
 }
 
 
