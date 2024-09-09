@@ -127,8 +127,8 @@ void DevScene::Init()
 			tm->SetMapSize({ 63, 43 });
 			tm->SetTileSize(48);
 
-			_tilemapActor->SetTilemap(tm);
-			_tilemapActor->SetShowDebug(true);
+			//_tilemapActor->SetTilemap(tm);
+			//_tilemapActor->SetShowDebug(true);
 		}
 	}
 
